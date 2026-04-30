@@ -1,0 +1,27 @@
+package com.anna.gymmembership.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table (name = "GYM")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Gym {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column (nullable = false)
+    private String name;
+
+    @Column (nullable = false)
+    private String address;
+
+    @Column (nullable = false)
+    private String phone_number;
+
+}
