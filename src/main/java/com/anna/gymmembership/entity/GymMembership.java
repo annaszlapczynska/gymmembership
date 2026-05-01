@@ -6,7 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="GYM_MEMBERSHIP")
+@Table(name="gym_memberships")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -32,4 +32,8 @@ public class GymMembership {
 
     @Column(nullable = false)
     private Integer maxMembers;
+
+    @ManyToOne
+    @JoinColumn(name = "gym")
+    private Gym gym;
 }

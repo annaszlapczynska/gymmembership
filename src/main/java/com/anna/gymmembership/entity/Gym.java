@@ -3,8 +3,10 @@ package com.anna.gymmembership.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
-@Table (name = "GYM")
+@Table (name = "gyms")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,5 +25,9 @@ public class Gym {
 
     @Column (nullable = false)
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "gym", cascade = CascadeType.ALL)
+    private List<GymMembership> memberships;
+
 
 }

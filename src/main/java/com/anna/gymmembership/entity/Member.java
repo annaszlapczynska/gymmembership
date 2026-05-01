@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "MEMBER")
+@Table(name = "members")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,4 +29,8 @@ public class Member {
     @Column (nullable = false)
     @Enumerated(EnumType.STRING)
     private MembershipStatus status;
+
+    @OneToOne
+    @JoinColumn(name = "membership_plan")
+    private GymMembership membership;
 }
