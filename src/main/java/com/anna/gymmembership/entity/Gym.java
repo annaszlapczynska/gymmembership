@@ -1,5 +1,8 @@
 package com.anna.gymmembership.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +30,7 @@ public class Gym {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "gym", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<GymMembership> memberships;
 
 

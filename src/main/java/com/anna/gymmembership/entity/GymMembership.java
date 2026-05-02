@@ -1,5 +1,8 @@
 package com.anna.gymmembership.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +24,9 @@ public class GymMembership {
     private BigDecimal amount;
 
     @Column(nullable = false)
+    private String currency;
+
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -34,6 +40,7 @@ public class GymMembership {
     private Integer maxMembers;
 
     @ManyToOne
-    @JoinColumn(name = "gym")
+    @JoinColumn(name = "gym", nullable = false)
+    @JsonIgnore
     private Gym gym;
 }
