@@ -30,7 +30,7 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private MembershipStatus status;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "membership_plan")
     private GymMembership membership;
 }

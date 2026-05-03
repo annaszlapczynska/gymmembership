@@ -24,4 +24,10 @@ public class MembershipController {
     public ResponseEntity<List<GymMembership>> getAllMemberships(@PathVariable Long gymId) {
         return ResponseEntity.ok(membershipService.getMembershipsByGymId(gymId));
     }
+
+    @PatchMapping("/{membershipId}/cancel")
+    public ResponseEntity<Void> cancel(@PathVariable Long membershipId){
+        membershipService.cancelMembership(membershipId);
+        return ResponseEntity.noContent().build();
+    }
 }
