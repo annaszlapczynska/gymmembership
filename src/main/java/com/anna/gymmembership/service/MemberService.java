@@ -1,5 +1,6 @@
 package com.anna.gymmembership.service;
 
+import com.anna.gymmembership.dto.MemberResponseDTO;
 import com.anna.gymmembership.entity.GymMembership;
 import com.anna.gymmembership.entity.Member;
 import com.anna.gymmembership.entity.MembershipStatus;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberService {
@@ -32,7 +34,10 @@ public class MemberService {
 
         return memberRepo.save(member);
     }
-    public List<Member> getAllMembers() {
-        return memberRepo.findAll();
+    public List<MemberResponseDTO> getAllMembers() {
+
+        return memberRepo.findAll().stream()
+                .map(MemberResponseDTO::new)
+                .collect(Collectors.toList());
     }
 }

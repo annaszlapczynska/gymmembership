@@ -1,5 +1,6 @@
 package com.anna.gymmembership.controller;
 
+import com.anna.gymmembership.dto.MemberResponseDTO;
 import com.anna.gymmembership.entity.Member;
 import com.anna.gymmembership.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class MemberController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Member>> listAll() {
+    public ResponseEntity<List<MemberResponseDTO>> listAll() {
         return ResponseEntity.ok(memberService.getAllMembers());
     }
 }
