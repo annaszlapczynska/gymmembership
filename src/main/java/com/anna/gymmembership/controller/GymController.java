@@ -1,5 +1,6 @@
 package com.anna.gymmembership.controller;
 
+import com.anna.gymmembership.dto.ReportDTO;
 import com.anna.gymmembership.entity.Gym;
 import com.anna.gymmembership.service.GymService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,8 @@ public class GymController {
         return ResponseEntity.ok(gymService.getAllGyms());
     }
 
+    @GetMapping("/report")
+    public ResponseEntity<List<ReportDTO>> getReport() {
+        return ResponseEntity.ok(gymService.generateReport());
+    }
 }
