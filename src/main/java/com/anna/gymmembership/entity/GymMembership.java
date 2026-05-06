@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -20,7 +21,8 @@ public class GymMembership {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Min(0) // price can't be negative
+    @Column(nullable = false, precision = 10, scale = 2) // in the case of group membership assuming price per member
     private BigDecimal amount;
 
     @Column(nullable = false)

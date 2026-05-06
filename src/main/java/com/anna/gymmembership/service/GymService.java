@@ -26,9 +26,9 @@ public class GymService {
     public List<ReportDTO> generateReport() {
         List<Object[]> results = gymRepo.getReportData();
         return results.stream().map(result -> new ReportDTO(
-                (String) result[0],
-                (BigDecimal) result[1],
-                (String) result[2]
+                (String) result[0], // gym name
+                (BigDecimal) result[1], // amount
+                (String) result[2] // currency
         )).collect(Collectors.toList());
 
     }

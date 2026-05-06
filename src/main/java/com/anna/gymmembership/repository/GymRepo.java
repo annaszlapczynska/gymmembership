@@ -11,7 +11,7 @@ import java.util.List;
 public interface GymRepo extends JpaRepository<Gym,Long> {
 
     @Query( value = "SELECT g.name as gymName, SUM(gm.amount) AS amount, gm.currency AS currency " +
-            "FROM members m " +
+            "FROM members m " + // summing up membership price per active user, grouping by gym name and currency
             "JOIN gym_memberships gm on m.membership_plan = gm.id " +
             "JOIN gyms g ON g.id = gm.gym " +
             "WHERE m.status = 'ACTIVE' " +

@@ -30,7 +30,7 @@ public class MembershipService {
     }
 
     @Transactional
-    public void cancelMembership(Long membershipId) {
+    public void cancelMembership(Long membershipId) { // the point "cancelling membership" interpreted as cancelling whole membership
         memberRepo.cancelByMembershipId(membershipId, MembershipStatus.CANCELLED.name());
     }
 

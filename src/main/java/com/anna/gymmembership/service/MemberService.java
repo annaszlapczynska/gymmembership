@@ -25,17 +25,17 @@ public class MemberService {
                 .orElseThrow(() -> new RuntimeException("GymMembership not found"));
 
         long currentMemebers = memberRepo.countByMembershipIdAndStatus(membershipId, MembershipStatus.ACTIVE);
-        if(currentMemebers >= membership.getMaxMembers()){
+        if(currentMemebers >= membership.getMaxMembers()){ // capacity check
             throw new RuntimeException("Maximum number of members reached");
         }
-        member.setStartDate(LocalDate.now());
+        member.setStartDate(LocalDate.now()); // set date automatically
         member.setMembership(membership);
-        member.setStatus(MembershipStatus.ACTIVE);
+        member.setStatus(MembershipStatus.ACTIVE); // set as active automatically
 
         return memberRepo.save(member);
     }
     public List<MemberResponseDTO> getAllMembers() {
-
+        // dto used to ensure right format of data
         return memberRepo.findAll().stream()
                 .map(MemberResponseDTO::new)
                 .collect(Collectors.toList());

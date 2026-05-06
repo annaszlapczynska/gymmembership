@@ -15,7 +15,7 @@ public interface MemberRepo extends JpaRepository<Member,Long> {
     long countByMembershipIdAndStatus(Long membershipId, MembershipStatus status);
 
     @Modifying
-    @Transactional
+    @Transactional // updating member status to cancelled
     @Query(value = "UPDATE members SET status = :status WHERE membership_plan = :membershipId", nativeQuery = true)
     void cancelByMembershipId(@Param("membershipId") Long membershipId, @Param("status") String status);
 
