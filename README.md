@@ -26,5 +26,5 @@
 - **List All Members:** `GET /api/members` 
 
 ### 4. Report
-- **Revenue Report:** `GET /api/reports/revenue`
+- **Revenue Report:** `GET /api/gyms/report`
     - Displays total monthly revenue per gym grouped by currency
