@@ -17,7 +17,7 @@
 
 ### 2. Memberships
 - **Create Plan:** `POST /api/gyms/{gymId}/memberships`
-    - Body: `{"name": "Gold", "amount": 99.99, "currency": "PLN", "durationMonths": 1, "maxMembers": 1}`
+    - Body: `{"name": "Gold", "type": "PREMIUM", "amount": 99.99, "currency": "PLN", "durationMonths": 1, "maxMembers": 1}`
 - **Cancel All for Plan:** `PATCH /api/gyms/{gymId}/memberships/{id}/cancel`
 
 ### 3. Members
